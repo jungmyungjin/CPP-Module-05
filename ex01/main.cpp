@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/16 20:47:57 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/16 20:47:58 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
@@ -9,7 +21,7 @@ int main(void)
 		// 예외 처리 예제
 		{
 //			Form project1("project 1", 1000, -3);
-//			Form project1("project 1", 10, -3);
+//			Form project1("project 1", 10000, 5);
 		}
 
 		// 일반 예제 1
@@ -51,16 +63,9 @@ int main(void)
 //			std::cout << project1 << std::endl;
 //		}
 	}
-	catch (const char *str)
+	catch (std::exception & e)
 	{
-		std::cout << str << std::endl;
-	}
-	catch (int x)
-	{
-		if (x == 1)
-			std::cout << "The grade 150 is the lowest, so you can't lower the grade any more." << std::endl;
-		else if(x == -1)
-			std::cout << "Grade 1 is the highest grade, so you can't raise your grade any more." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	return (0);

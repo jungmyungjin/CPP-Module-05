@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/16 20:47:55 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/16 20:47:55 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM_HPP
 #define FORM_HPP
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <exception>
 
 class Bureaucrat;
 
@@ -16,13 +29,20 @@ public:
 
 	// 관료의 등급이 높으면 서명하는
 	void beSigned(Bureaucrat &target);
-	int GradeTooHighException();
-	int GradeTooLowException();
 
 	std::string getFormName() const;
 	bool getIsSigned() const;
 	int getRequiredGrade() const;
 	int getExecuteGrade() const;
+
+	class GradeTooHighException : public std::exception {
+	public:
+		const char *what(void) const throw();
+	};
+	class GradeTooLowException : public std::exception {
+	public:
+		const char *what(void) const throw();
+	};
 
 private:
 	std::string FormName_;

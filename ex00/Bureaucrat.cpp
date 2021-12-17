@@ -6,7 +6,7 @@
 /*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:48:48 by mjung             #+#    #+#             */
-/*   Updated: 2021/12/16 20:19:22 by mjung            ###   ########.fr       */
+/*   Updated: 2021/12/16 20:51:48 by mjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &target) : name_(target.name_)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &target)
 {
 	grade_ = target.grade_;
+	return(*this);
 }
 
 std::string Bureaucrat::getName() const

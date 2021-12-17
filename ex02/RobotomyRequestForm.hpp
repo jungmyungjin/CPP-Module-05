@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/17 17:34:58 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/17 17:35:15 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
@@ -6,8 +17,7 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <random>
 
 class Bureaucrat;
 

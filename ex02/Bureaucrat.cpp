@@ -1,20 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/15 18:48:48 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/17 17:36:43 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
+// throw() : 예외를 던지지 않은 함수
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("[Grade Too High Exception]\nGrade 1 is the highest grade, so you can't raise your grade any more.");
+}
+
+// throw() : 예외를 던지지 않은 함수
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("[Grade Too Low Exception]\nThe grade 150 is the lowest, so you can't lower the grade any more.");
+}
 
 Bureaucrat::Bureaucrat()
 {
 	grade_ = 0;
 }
 
-Bureaucrat::Bureaucrat(std::string _name, int _grade)
+Bureaucrat::Bureaucrat(const std::string _name, int _grade) : name_(_name), grade_(_grade)
 {
-	name_ = _name;
 	if (_grade < 1)
 		throw GradeTooHighException();
+
 	else if (_grade > 150)
 		throw GradeTooLowException();
-
-	grade_ = _grade;
 }
 
 
@@ -22,16 +43,15 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &target)
+Bureaucrat::Bureaucrat(const Bureaucrat &target) : name_(target.name_)
 {
-	name_ = target.name_;
 	grade_ = target.grade_;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &target)
 {
-	name_ = target.grade_;
 	grade_ = target.grade_;
+	return(*this);
 }
 
 std::string Bureaucrat::getName() const
@@ -80,18 +100,6 @@ void Bureaucrat::signForm(Form &form) {
 			std::cout << name_ << " didn't receive the payment.";
 		std::cout << std::endl;
 	}
-}
-
-int Bureaucrat::GradeTooHighException()
-{
-	std::cout << "[Grade Too High Exception]" << std::endl;
-	return (-1);
-}
-
-int Bureaucrat::GradeTooLowException()
-{
-	std::cout << "[Grade Too Low Exception]" << std::endl;
-	return(1);
 }
 
 void Bureaucrat::executeForm(Form const &form)

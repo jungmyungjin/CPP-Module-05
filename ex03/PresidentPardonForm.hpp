@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentPardonForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/17 17:34:55 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/17 17:50:25 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PRESIDENTPARDONFORM_HPP
 #define PRESIDENTPARDONFORM_HPP
 
@@ -16,7 +28,7 @@ class PresidentPardonForm: public virtual Form
 public:
 	PresidentPardonForm();
 	PresidentPardonForm(std::string _target);
-	~PresidentPardonForm();
+	virtual ~PresidentPardonForm();
 	PresidentPardonForm(const PresidentPardonForm &PresidentPardonForm);
 	PresidentPardonForm &operator=(const PresidentPardonForm &PresidentPardonForm);
 
@@ -26,6 +38,5 @@ public:
 private:
 	void pardon();
 };
-
 
 #endif

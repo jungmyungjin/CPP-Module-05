@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/17 17:50:47 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/17 17:50:48 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Form.hpp"
 #include "Intern.hpp"
@@ -10,27 +22,18 @@ int main(void)
 		Intern intern1;
 		Form *rtn;
 
-//		rtn = intern1.makeForm("RobotomyRequestForm", "mjung");
-		rtn = intern1.makeForm("wrongForm", "mjung");
+		rtn = intern1.makeForm("RobotomyRequestForm", "mjung");
+//		rtn = intern1.makeForm("wrongForm", "mjung");
 		std::cout << rtn->getFormName() << std::endl;
 		std::cout << rtn->getTarget() << std::endl;
 
+		std::cout << *rtn << std::endl;
 	}
-	catch(int x)
+	catch (std::exception & e)
 	{
-		if (x == 1)
-			std::cout << "The grade 150 is the lowest, so you can't lower the grade any more." << std::endl;
-		else if(x == -1)
-			std::cout << "Grade 1 is the highest grade, so you can't raise your grade any more." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
-	catch(const char *str)
-	{
-		std::cout << str << std::endl;
-	}
-	catch(std::string str)
-	{
-		std::cout << str << std::endl;
-	}
+
 
 
 

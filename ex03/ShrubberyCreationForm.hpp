@@ -1,6 +1,14 @@
-//
-// Created by 정명진 on 2021/12/04.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/17 17:35:31 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/17 17:50:58 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
@@ -17,7 +25,7 @@ class ShrubberyCreationForm : public virtual Form
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string _target);
-	~ShrubberyCreationForm();
+	virtual ~ShrubberyCreationForm();
 	ShrubberyCreationForm(const ShrubberyCreationForm &ShrubberyCreationForm);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &ShrubberyCreationForm);
 
